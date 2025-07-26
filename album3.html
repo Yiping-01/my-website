@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>拍攝寫真</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 0;
+      color: #444;
+    }
+    h1 {
+      text-align: center;
+      padding: 1em;
+      color: #e75480;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>鴨鴨寫真</h1>
+<div class="gallery">
+  <img src="album3/photo1.jpg" alt="photo" onclick="openLightbox(this.src)">
+  <img src="album3/photo2.jpg" alt="photo" onclick="openLightbox(this.src)">
+  <img src="album3/photo3.jpg" alt="photo" onclick="openLightbox(this.src)">
+  <img src="album3/photo4.jpg" alt="photo" onclick="openLightbox(this.src)">
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
