@@ -61,7 +61,7 @@
       overflow: visible;
     }
 
-    /* 外層：進場動畫 */
+    /* 外層動畫 */
     .album {
       text-decoration: none;
       color: inherit;
@@ -82,9 +82,9 @@
       }
     }
 
-    /* 內層：卡片外觀與 hover 放大 */
+    /* 內層卡片樣式 */
     .album-inner {
-        position: relative;
+      position: relative;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 4px 8px rgba(3, 3, 3, 0.1);
@@ -105,27 +105,51 @@
       display: block;
     }
 
-    /* 相簿文字標題 */
+    /* 標題文字：初始隱藏，hover 時淡入 */
     .caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #e75480;
-  font-weight: bold;
-  padding: 10px;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #e75480;
+      font-weight: bold;
+      padding: 10px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
+    .album:hover .caption {
+      opacity: 1;
+    }
 
-/* 滑鼠移到 album 時，讓 caption 淡入 */
-.album:hover .caption {
-  opacity: 1;
-}
+    /* 📱 手機響應式設計 */
+    @media (max-width: 768px) {
+      .album-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+      }
 
+      .album-inner img {
+        width: 90vw;
+        height: auto;
+      }
+
+      .caption {
+        font-size: 1rem;
+        padding: 8px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .title-box {
+        padding: 30px 10px;
+      }
+    }
   </style>
 </head>
 
