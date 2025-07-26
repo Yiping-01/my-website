@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>我的寫真首頁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Sawarabi Gothic', sans-serif;
+      text-align: center;
+      padding: 0;
+      padding-top: 140px;
+      margin: 0;
+      height: 1000px;
+    }
+
+    /* 頁首粉色橫幅 */
+    .title-box {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f8bcbc;
+      border-radius: 0 0 30px 30px;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: white;
+      margin: 0;
+      animation: softGlow 2.5s ease-in-out infinite;
+      text-shadow: 0 0 5px #fff, 0 0 8px #ffc0cb;
+    }
+
+    @keyframes softGlow {
+      0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 5px #fff, 0 0 8px #ffc0cb;
+      }
+      50% {
+        opacity: 0.92;
+        text-shadow: 0 0 2px #fff, 0 0 4px #ffb6c1;
+      }
+    }
+
+    /* 相簿容器 */
+    .album-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 80px;
+      overflow: visible;
+    }
+
+    /* 外層：進場動畫 */
+    .album {
+      text-decoration: none;
+      color: inherit;
+      opacity: 0;
+      transform: translateX(100px);
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    .album:nth-child(1) { animation-delay: 0.1s; }
+    .album:nth-child(2) { animation-delay: 0.3s; }
+    .album:nth-child(3) { animation-delay: 0.5s; }
+    .album:nth-child(4) { animation-delay: 0.7s; }
+
+    @keyframes slideInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* 內層：卡片外觀與 hover 放大 */
+    .album-inner {
+        position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(3, 3, 3, 0.1);
+      transition: transform 0.3s ease;
+      transform-origin: center center;
+    }
+
+    .album:hover .album-inner {
+      transform: scale(1.05);
+      z-index: 10;
+    }
+
+    /* 圖片樣式 */
+    .album-inner img {
+      width: 240px;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 相簿文字標題 */
+    .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #e75480;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+/* 滑鼠移到 album 時，讓 caption 淡入 */
+.album:hover .caption {
+  opacity: 1;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="title-box">
+    <h1>美しい瞬間の記録</h1>
+  </div>
+
+  <div class="album-links">
+    <a class="album" href="album1.html">
+      <div class="album-inner">
+        <img src="album1/photo4.jpg" alt="寫真1">
+        <div class="caption">小番茄居家</div>
+      </div>
+    </a>
+    <a class="album" href="album2.html">
+      <div class="album-inner">
+        <img src="album2/photo1.jpg" alt="寫真2">
+        <div class="caption">日系居家</div>
+      </div>
+    </a>
+    <a class="album" href="album3.html">
+      <div class="album-inner">
+        <img src="album3/photo2.jpg" alt="寫真3">
+        <div class="caption">鴨鴨寫真</div>
+      </div>
+    </a>
+    <a class="album" href="album4.html">
+      <div class="album-inner">
+        <img src="album4/photo1.jpg" alt="寫真4">
+        <div class="caption">蘿莉塔</div>
+      </div>
+    </a>
+  </div>
+</body>
+</html>
